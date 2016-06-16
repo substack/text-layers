@@ -21,5 +21,13 @@
     "mask"
   ],
   "author": "substack",
-  "license": "BSD"
+  "license": "BSD",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/substack/text-layers.git"
+  },
+  "bugs": {
+    "url": "https://github.com/substack/text-layers/issues"
+  },
+  "homepage": "https://github.com/substack/text-layers#readme"
 }
