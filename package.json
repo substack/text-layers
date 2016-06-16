@@ -1,0 +1,25 @@
+{
+  "name": "text-layers",
+  "version": "1.0.0",
+  "description": "overlay text regions",
+  "main": "index.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^4.5.1"
+  },
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "keywords": [
+    "text",
+    "overlay",
+    "layer",
+    "mask"
+  ],
+  "author": "substack",
+  "license": "BSD"
+}
