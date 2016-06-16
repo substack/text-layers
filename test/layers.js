@@ -20,3 +20,14 @@ test('layers', function (t) {
   t.equal(output, files.expected)
   t.end()
 })
+
+test('layers - bare cal string', function (t) {
+  var output = layers([
+    files.cal,
+    { text: files.date, x: 24, y: 3 },
+    { text: files.uptime, x: 23, y: 4 },
+    { text: 'HI', x: 3, y: 3 }
+  ])
+  t.equal(output, files.expected)
+  t.end()
+})
