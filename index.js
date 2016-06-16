@@ -17,9 +17,18 @@ module.exports = function (layers) {
 
 function merge (a, b) {
   var output = []
-  for (var i = 0; i < b.length; i++) {
+
+  for (var i = 0, j = 0; i < b.length; i++, j++) {
     var ca = a.charAt(i) || ' '
-    var cb = b.charAt(i)
+    if (a.charAt(i+1) === '\b') {
+      i++
+      continue
+    }
+    if (b.charAt(j+1) === '\b') {
+      j++
+      continue
+    }
+    var cb = b.charAt(j)
     output.push(cb === ' ' ? ca : cb)
   }
   return output.join('')

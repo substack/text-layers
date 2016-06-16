@@ -16,6 +16,6 @@ function show () {
   process.stdout.write(layers([
     { text: output[0], x: 0, y: 0 },
     { text: output[1], x: 24, y: 3 },
-    { text: output[2], x: 24, y: 4 },
+    { text: output[2], x: 23, y: 4 },
   ]))
 }
