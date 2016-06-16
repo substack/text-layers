@@ -1,6 +1,6 @@
 {
   "name": "text-layers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "overlay text regions",
   "main": "index.js",
   "directories": {
