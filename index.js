@@ -5,7 +5,7 @@ module.exports = function (layers) {
       layer = { x: 0, y: 0, text: layer }
     }
     var xpre = Array(layer.x+1).join(' ')
-    var ypre = Array(layer.y+1).map(function (x) { return xpre })
+    var ypre = Array(layer.y).map(function (x) { return xpre })
     var lines = ypre.concat(layer.text.split('\n')
       .map(function (c) { return xpre + c }))
     lines.forEach(function (line, i) {
