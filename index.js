@@ -19,17 +19,22 @@ function merge (a, b) {
   var output = []
   var len = Math.max(a.length, b.length)
   for (var i = 0, j = 0; i < len; i++, j++) {
-    if (a.charAt(i+1) === '\b') {
-      i++
-      continue
-    }
-    if (b.charAt(j+1) === '\b') {
-      j++
-      continue
-    }
     var ca = a.charAt(i) || ' '
+    var ca1 = a.charAt(i+1)
     var cb = b.charAt(j) || ' '
-    output.push(cb === ' ' ? ca : cb)
+    var cb1 = b.charAt(j+1)
+    if (cb1 === '\b') {
+      i--
+      j++
+      len+=5
+      output.push(cb, cb1)
+    } else if (ca1 === '\b') {
+      i++
+      j--
+      output.push(ca, ca1)
+    } else {
+      output.push(cb === ' ' ? ca : cb)
+    }
   }
   return output.join('')
 }
