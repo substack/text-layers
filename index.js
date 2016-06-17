@@ -1,3 +1,5 @@
+var ansi = require('ansi-regex')()
+
 module.exports = function (layers) {
   var output = []
   layers.forEach(function (layer) {
@@ -16,9 +18,11 @@ module.exports = function (layers) {
 }
 
 function merge (a, b) {
+  var m
   var output = []
   var len = Math.max(a.length, b.length)
   var extra = 0
+  var re = RegExp('^' + ansi.source)
   for (var i = 0, j = 0; i < len + extra; i++, j++) {
     var ca = a.charAt(i) || ' '
     var ca1 = a.charAt(i+1)
@@ -34,6 +38,16 @@ function merge (a, b) {
       j--
       extra += 2
       output.push(ca, ca1)
+    } else if (m = re.exec(a.slice(i))) {
+      i += m[0].length - 1
+      j--
+      extra += m[0].length
+      output.push(m[0])
+    } else if (m = re.exec(b.slice(j))) {
+      i--
+      j += m[0].length - 1
+      extra += m[0].length
+      output.push(m[0])
     } else {
       output.push(cb === ' ' ? ca : cb)
     }
